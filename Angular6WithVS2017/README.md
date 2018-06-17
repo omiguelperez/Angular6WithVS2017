@@ -12,7 +12,7 @@ Trabajar con Angular 6 en Visual Studio 2017.
 
 1. Crear una aplicación web ASP.NET Core (plantilla API)
 
-2. En el directorio de la solución VS, ejecutar `ng new [nombre del proyecto]
+2. En el directorio de la solución VS, ejecutar `ng new [nombre del proyecto]`
 
 3. Editar el archivo `.csproj` añadiendo las siguiente línas en la sección `PropertyGroup`
 
