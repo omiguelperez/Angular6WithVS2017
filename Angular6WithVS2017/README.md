@@ -1,27 +1,35 @@
 # Angular6WithVS2017
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+Trabajar con Angular 6 en Visual Studio 2017.
 
-## Development server
+## Requerimientos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [.NET Core](https://www.microsoft.com/net/download/)
+- [Node.js](https://nodejs.org/es/)
+- [Angular CLI](https://cli.angular.io)
 
-## Code scaffolding
+## Configuración
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Crear una aplicación web ASP.NET Core (plantilla API)
 
-## Build
+2. En el directorio de la solución VS, ejecutar `ng new [nombre del proyecto]
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+3. Editar el archivo `.csproj` añadiendo las siguiente línas en la sección `PropertyGroup`
 
-## Running unit tests
+```xml
+<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked> 
+<PostBuildEvent>ng build --aot</PostBuildEvent>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. Editar el archivo `angular.json` y especificar el valor `wwwroot` en la propiedad `outpathPath`
 
-## Running end-to-end tests
+5. En el archivo `Startup.cs` agregar dos middlewares en el método `Configure`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+app.UseDefaultFiles();
+app.UseStaticFiles();
+```
 
-## Further help
+6. Quitar `"launchUrl": "api/values"` del archivo **Properties/launchSettings.json**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+7. Por último, al compilar y ejecutar la aplicación se mostrará la página principal de una aplicación Angular 6.
